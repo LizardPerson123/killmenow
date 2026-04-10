@@ -258,7 +258,7 @@ class Brandy extends Alcohol {
     })
 
     this.name = "Brandy"
-    this.description = "Give A Selected Player Forced Blanks For 3 Turns"
+    this.description = "Give A Selected Player Forced Blanks For 2 Turns"
     this.img = "brandy.png"
   }
 }
