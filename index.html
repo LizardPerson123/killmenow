@@ -188,7 +188,7 @@
       })
 
       getById("startMultiplayer").addEventListener("click", function() {
-        ws = new WebSocket("ws://api.rottingpears.com/")
+        ws = new WebSocket("wss://api.rottingpears.com/")
 
         ws.onmessage = function () {
           let username = getById("username").value
