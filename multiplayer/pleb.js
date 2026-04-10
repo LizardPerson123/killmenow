@@ -182,6 +182,20 @@ async function beginGamePleb() {
       getById("wheel").src = "images/wheel.png"
       dontTurnWheel = false
       getById("event").innerText = ``
+
+      players.forEach(function(player) {
+        if (player.name == msg.nextTurn && player.hp < 1) {
+          let next = player
+
+          do {next = players[players.indexOf(next) + 1]
+            if (next == undefined) {next = players[0]}
+          }
+          while (next.hp < 1)
+
+          msg.nextTurn = next.name
+        }
+      })
+
       getById("eventHeader").innerText = `${msg.nextTurn}'s Turn`
 
       if (msg.nextTurn == thisPlayer) {

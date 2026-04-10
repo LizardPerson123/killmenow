@@ -16,7 +16,7 @@ function newSession(username, password) {
 
       onUserLeft = async function(eventData) {
         let members = await getMembersApi()
-        if (members.length < 2) {
+        if (members.length < 2 && inGameBegin) {
           alert("Not Enough Players Anymore, " + eventData.username + " Left")
           window.location.reload()
         }
@@ -192,7 +192,7 @@ async function multiplayerGame() {
           resetGame()
           return
         }
-
+        
         let nextTurn = players.getAlivePlayers()[players.getAlivePlayers().indexOf(players[i]) + 1] || players.getAlivePlayers()[0]
 
         await players[i].multiplayerTurn(nextTurn.name)
